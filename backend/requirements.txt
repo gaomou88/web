@@ -1,0 +1,4 @@
+starlette==1.7.0
+uvicorn[standard]==0.54.0
+# AI 导入：读取 PDF 文字、把扫描版 PDF 渲染成图片（自带 PDFium，无需系统依赖）
+pypdfium2>=4.30,<6

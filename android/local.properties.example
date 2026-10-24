@@ -1,0 +1,17 @@
+# 复制为 local.properties（不要提交到 Git）。Android Studio 会自动写入 sdk.dir。
+# sdk.dir=C\:\\Users\\你的用户名\\AppData\\Local\\Android\\Sdk      （Windows）
+# sdk.dir=/Users/你的用户名/Library/Android/sdk                      （macOS）
+
+# 你的网站地址（App 默认连接的服务器，App 内“我的 → 服务器设置”也能改）
+zyll.serverUrl=https://zyll.example.com
+
+# 后台“安卓 App”页开启了“要求 App Key”时填写同样的值；没开启就留空
+zyll.appKey=
+
+# 版本号：每次发布新版都要把 versionCode 加 1
+zyll.versionCode=1
+zyll.versionName=1.0.0
+
+# 可选：应用名称、包名
+# zyll.appName=Zyll财经
+# zyll.applicationId=com.zyll.finance

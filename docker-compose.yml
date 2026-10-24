@@ -1,0 +1,27 @@
+# 启动：docker compose up -d --build
+# 前台：http://服务器IP:8088      后台：http://服务器IP:8088/zylladmin
+# 换端口：在同目录 .env 文件里写 PORT=9000
+services:
+  zyll:
+    build:
+      context: .
+      args:
+        # 国内服务器构建慢时，在 .env 里写 PIP_INDEX_URL=https://mirrors.aliyun.com/pypi/simple
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.org/simple}
+    container_name: zyll
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8088}:8000"
+    volumes:
+      - zyll_data:/data
+    environment:
+      # 可选：设置后，后台安装向导需要输入此口令（防止别人抢先安装）
+      ZYLL_INSTALL_TOKEN: ${ZYLL_INSTALL_TOKEN:-}
+      # 应急：设为 1 可临时关闭所有 Cloudflare 人机验证
+      ZYLL_DISABLE_TURNSTILE: ${ZYLL_DISABLE_TURNSTILE:-}
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+volumes:
+  zyll_data:
