@@ -1,0 +1,5 @@
+android/
+**/__pycache__
+*.db
+*.log
+.git
